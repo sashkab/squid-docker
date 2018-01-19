@@ -1,0 +1,13 @@
+version: '3.2'
+
+services:
+  squid:
+    build:
+      context: squid
+      dockerfile: Dockerfile
+    ports:
+      - target: 3128
+        published: 3128
+        protocol: tcp
+        mode: host
+    restart: always

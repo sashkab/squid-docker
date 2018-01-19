@@ -4,7 +4,13 @@ LABEL description="squid server"
 LABEL maintainer="github@compuix.com"
 
 RUN set -xe \
-    && apk add --no-cache squid
+    && apk add --no-cache squid \
+    && mkdir -p /var/cache/squid \
+    && chown -R squid:squid /var/cache/squid
 
-# TODO ADD CONFIG
-EXPOSE 3128
+COPY squid.conf /etc/squid/squid.conf
+COPY entrypoint.sh /usr/bin/entrypoint.sh
+
+USER squid
+
+ENTRYPOINT ["squid", "-NYCd 1"]
