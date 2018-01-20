@@ -6,8 +6,19 @@ services:
       context: squid
       dockerfile: Dockerfile
     ports:
-      - target: 3128
-        published: 3128
-        protocol: tcp
-        mode: host
+      - "127.0.0.1:3128:3128"
     restart: always
+    networks:
+      eighteen:
+        ipv4_address: 172.18.0.31
+    logging:
+      options:
+        max-size: "100k"
+        max-file: "3"
+
+networks:
+  eighteen:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.18.0.0/24
