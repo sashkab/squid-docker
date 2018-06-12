@@ -13,4 +13,4 @@ COPY entrypoint.sh /usr/bin/entrypoint.sh
 
 USER squid
 
-ENTRYPOINT ["squid", "-NYCd 1"]
+ENTRYPOINT ["squid", "-NYC"]

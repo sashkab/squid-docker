@@ -10,15 +10,16 @@ services:
     restart: always
     networks:
       eighteen:
-        ipv4_address: 10.18.0.31
+	ipv4_address: 172.18.0.31
     logging:
       options:
-        max-size: "100k"
-        max-file: "3"
+	max-size: "100k"
+	max-file: "3"
 
 networks:
   eighteen:
     driver: bridge
     ipam:
       config:
-      - subnet: 10.18.0.0/24
+      - subnet: 172.18.0.0/24
+
