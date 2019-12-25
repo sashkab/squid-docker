@@ -1,7 +1,9 @@
-FROM alpine:3.7
+FROM alpine:3.11
 
-LABEL description="squid server"
-LABEL maintainer="github@compuix.com"
+LABEL \
+    maintainer="github@compuix.com" \
+    version="2019.12.25" \
+    description="squid server."
 
 RUN set -xe \
     && apk add --no-cache squid \
