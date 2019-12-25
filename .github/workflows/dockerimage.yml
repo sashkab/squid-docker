@@ -1,0 +1,26 @@
+name: Build squid-docker image
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+  schedule:
+    - cron: '0 12 * * 2,5'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: build and start
+      run: docker-compose -f docker-compose.yml up --build -d
+    - name: check running containers
+      run: docker ps -a
+    - name: show logs
+      run: docker-compose logs
+    - name: stop and cleanup
+      run: docker-compose stop

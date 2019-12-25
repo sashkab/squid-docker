@@ -9,12 +9,12 @@ services:
       - "127.0.0.1:3128:3128"
     restart: always
     networks:
-      eighteen:
-	ipv4_address: 172.18.0.31
+        eighteen:
+          ipv4_address: 172.18.0.31
     logging:
       options:
-	max-size: "100k"
-	max-file: "3"
+        max-size: "100k"
+        max-file: "3"
 
 networks:
   eighteen:
@@ -22,4 +22,3 @@ networks:
     ipam:
       config:
       - subnet: 172.18.0.0/24
-
