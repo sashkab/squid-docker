@@ -1,8 +1,8 @@
-FROM alpine:3.16.3
+FROM alpine:3.17.1
 
 LABEL \
     maintainer="github@compuix.com" \
-    version="2022.11.12" \
+    version="2023.01.09" \
     description="squid server."
 
 RUN set -xe \
